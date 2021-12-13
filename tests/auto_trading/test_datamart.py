@@ -26,8 +26,12 @@ def test_datamart_type():
 
 
 def test_datamart_us():
-    return Datamart(raw_data_msft, "open", 5).datamart
+    actual = Datamart(raw_data_msft, "open", 5).datamart
+    expected = RawData(symbol_data_msft).raw_data.head(5)["open"]
+    assert all(actual == expected)
 
 
 def test_datamart_jp():
-    return Datamart(raw_data_toyota, "close", 3).datamart
+    actual = Datamart(raw_data_toyota, "close", 3).datamart
+    expected = RawData(symbol_data_msft).raw_data.head(3)["close"]
+    assert all(actual == expected)
