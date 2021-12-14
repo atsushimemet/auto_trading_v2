@@ -23,3 +23,10 @@ def test_has_attr_datamart():
     datamart = create_datamart_msft()
     model = Model(datamart)
     assert len(model._datamart)
+
+
+def test_lgb_clf_created():
+    datamart = create_datamart_msft()
+    model = Model(datamart)
+    model.fit()
+    assert model.clf
