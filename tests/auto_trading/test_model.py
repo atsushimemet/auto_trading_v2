@@ -10,15 +10,16 @@ def create_datamart_msft() -> pd.DataFrame:
     symbol_data = SymbolData("MSFT").symbol_data
     raw_data = RawData(symbol_data).raw_data
     datamart = Datamart(raw_data, "close", 5)
-    return datamart
+    return datamart.datamart
 
 
 def test_existing_model_class():
     datamart = create_datamart_msft()
-    assert Model(datamart)
+    model = Model(datamart)
+    assert model
 
 
 def test_has_attr_datamart():
     datamart = create_datamart_msft()
     model = Model(datamart)
-    assert model._datamart
+    assert len(model._datamart)
