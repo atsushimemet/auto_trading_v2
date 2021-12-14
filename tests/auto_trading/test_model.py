@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 
 from auto_trading.datamart import Datamart
@@ -30,3 +31,13 @@ def test_lgb_clf_created():
     model = Model(datamart)
     model.fit()
     assert model.clf
+
+
+def test_lgb_clf_predicted_type():
+    datamart = create_datamart_msft()
+    model = Model(datamart)
+    model.fit()
+    pred = model.predict(model.X)
+    actual = type(pred)
+    expected = np.ndarray
+    assert actual == expected

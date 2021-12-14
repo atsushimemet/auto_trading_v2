@@ -1,4 +1,5 @@
 import lightgbm as lgb
+import numpy as np
 import pandas as pd
 
 
@@ -37,3 +38,6 @@ class Model:
     def fit(self):
         self.clf = lgb.LGBMClassifier()
         self.clf.fit(self.X, self.y)
+
+    def predict(self, X: pd.DataFrame) -> np.ndarray:
+        return self.clf.predict(X)
