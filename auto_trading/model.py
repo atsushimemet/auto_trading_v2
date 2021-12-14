@@ -1,2 +1,6 @@
+import pandas as pd
+
+
 class Model:
-    pass
+    def __init__(self, datamart: pd.DataFrame):
+        self._datamart = datamart
