@@ -1,4 +1,4 @@
 yahoo_finance_api2
 pytest
 pandas
-
+lightgbm
