@@ -1,6 +1,7 @@
 import lightgbm as lgb
 import numpy as np
 import pandas as pd
+from sklearn.metrics import mean_squared_error
 
 
 class Model:
@@ -41,3 +42,6 @@ class Model:
 
     def predict(self, X: pd.DataFrame) -> np.ndarray:
         return self.clf.predict(X)
+
+    def mse(self, true: pd.Series, pred: np.ndarray) -> float:
+        return mean_squared_error(true, pred)

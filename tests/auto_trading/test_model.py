@@ -41,3 +41,12 @@ def test_lgb_clf_predicted_type():
     actual = type(pred)
     expected = np.ndarray
     assert actual == expected
+
+
+def test_mse():
+    datamart = create_datamart_msft()
+    model = Model(datamart)
+    model.fit()
+    pred = model.predict(model.X)
+    true = model.y
+    assert model.mse(true, pred)
